@@ -2,22 +2,23 @@ policy:
   approval:
   - one core developer approval
 
+  disapproval:
+
+    options:
+      methods:
+        disapprove:
+          github_review: true
+
+        revoke:
+          github_review: true
+
+  requires:
+    organizations: ["python-discord"]
+
+
 approval_rules:
 - name: one core developer approval
   requires:
     count: 1
     teams:
     - "python-discord/core-developers"
-
-disapproval:
-
-  options:
-    methods:
-      disapprove:
-        github_review: true
-
-      revoke:
-        github_review: true
-
-  requires:
-    organizations: ["python-discord"]
