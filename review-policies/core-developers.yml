@@ -8,3 +8,16 @@ approval_rules:
     count: 1
     teams:
     - "python-discord/core-developers"
+
+disapproval:
+
+  options:
+    methods:
+      disapprove:
+        github_review: true
+
+      revoke:
+        github_review: true
+
+  requires:
+    organizations: ["python-discord"]
