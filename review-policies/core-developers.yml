@@ -12,8 +12,8 @@ policy:
         revoke:
           github_review: true
 
-  requires:
-    organizations: ["python-discord"]
+    requires:
+      organizations: ["python-discord"]
 
 
 approval_rules:
