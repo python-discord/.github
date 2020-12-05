@@ -1,0 +1,10 @@
+policy:
+  approval:
+  - one core developer approval
+
+approval_rules:
+- name: one core developer approval
+  requires:
+    count: 1
+    teams:
+    - "python-discord/core-developers"
