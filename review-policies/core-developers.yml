@@ -1,6 +1,7 @@
 policy:
   approval:
   - one core developer approval
+  - devops approval for CI/CD changes
 
   # Rules for disapproving
   disapproval:
@@ -24,3 +25,16 @@ approval_rules:
     count: 1
     teams:
     - "python-discord/core-developers"
+- name: devops approval for CI/CD changes
+  requires:
+    count: 1
+    teams:
+    - "python-discord/devops"
+  if:
+    changed_files:
+      paths:
+        - ".github/workflows/*"
+  options:
+    request_review:
+      enabled: true
+      mode: team
