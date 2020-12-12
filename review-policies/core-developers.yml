@@ -38,3 +38,5 @@ approval_rules:
     request_review:
       enabled: true
       mode: team
+      
+    ignore_update_merges: true
