@@ -25,6 +25,8 @@ approval_rules:
     count: 1
     teams:
     - "python-discord/core-developers"
+  options:
+    ignore_update_merges: true
 - name: devops approval for CI/CD changes
   requires:
     count: 1
