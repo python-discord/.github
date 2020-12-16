@@ -1,0 +1,8 @@
+{
+  "name": "Enhanced GitHub Actions Status Embed",
+  "description": "Template for a workflow that sends an enhanced embed to our dev-log webhook.",
+  "iconName": "checkmark",
+  "categories": [
+    "Python"
+  ]
+}
