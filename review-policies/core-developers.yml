@@ -1,6 +1,8 @@
 policy:
   approval:
-  - one core developer approval
+  - and:
+    - one core developer approval
+    - two approvals from anyone
   - devops approval for CI/CD changes
 
   # Rules for disapproving
@@ -27,6 +29,11 @@ approval_rules:
     - "python-discord/core-developers"
   options:
     ignore_update_merges: true
+- name: two approvals from anyone
+  requires:
+    count: 2
+  options:
+    ignore_update_merges: true
 - name: devops approval for CI/CD changes
   requires:
     count: 1
@@ -36,6 +43,7 @@ approval_rules:
     changed_files:
       paths:
         - ".github/workflows/*"
+        - "Dockerfile"
   options:
     request_review:
       enabled: true
