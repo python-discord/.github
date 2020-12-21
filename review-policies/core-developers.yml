@@ -2,7 +2,7 @@ policy:
   approval:
   - and:
     - one core developer approval
-    - two approvals from anyone
+    - two approvals from staff or contributors
   - devops approval for CI/CD changes
 
   # Rules for disapproving
@@ -29,7 +29,7 @@ approval_rules:
     - "python-discord/core-developers"
   options:
     ignore_update_merges: true
-- name: two approvals from anyone
+- name: two approvals from staff or contributors
   requires:
     count: 2
     organizations: ["python-discord"]
