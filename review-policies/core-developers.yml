@@ -32,6 +32,17 @@ approval_rules:
 - name: two approvals from anyone
   requires:
     count: 2
+    organizations: ["python-discord"]
+    users:
+      - ByteCommander
+      - mathsman5133
+      - slushiegoose
+      - JonasUJ
+      - F4zii
+      - kingdom5500
+      - hedythedev
+      - Refisio
+      - riffautae
   options:
     ignore_update_merges: true
 - name: devops approval for CI/CD changes
