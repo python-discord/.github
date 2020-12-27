@@ -1,9 +1,9 @@
 policy:
   approval:
   - and:
-    - one core developer approval
-    - two approvals from staff or contributors
-  - devops approval for CI/CD changes
+    - core dev
+    - staff or contributor
+  - devops
 
   # Rules for disapproving
   disapproval:
@@ -22,14 +22,16 @@ policy:
 
 
 approval_rules:
-- name: one core developer approval
+- name: core dev
+  description: One approval from a Python Discord Core Developer
   requires:
     count: 1
     teams:
     - "python-discord/core-developers"
   options:
     ignore_update_merges: true
-- name: two approvals from staff or contributors
+- name: staff or contributor
+  description: Two members of the staff or contributors team must leave an approval
   requires:
     count: 2
     organizations: ["python-discord"]
@@ -45,7 +47,8 @@ approval_rules:
       - riffautae
   options:
     ignore_update_merges: true
-- name: devops approval for CI/CD changes
+- name: devops
+  description: If CI or Dockerfiles are changed then the DevOps team must be requested for a review
   requires:
     count: 1
     teams:
