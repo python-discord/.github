@@ -1,7 +1,7 @@
 policy:
   approval:
-  - one forms team approval
-  - devops approval for CI/CD changes
+  - forms team
+  - devops
 
   # Rules for disapproving
   disapproval:
@@ -20,7 +20,8 @@ policy:
 
 
 approval_rules:
-- name: one forms team approval
+- name: forms team
+  description: A member of the forms team must leave an approving review
   requires:
     count: 1
     teams:
@@ -31,7 +32,8 @@ approval_rules:
     request_review:
       enabled: true
       mode: team
-- name: devops approval for CI/CD changes
+- name: devops
+  description: If CI or Dockerfile are touched then the DevOps team must leave an approving review
   requires:
     count: 1
     teams:
