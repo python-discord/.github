@@ -1,6 +1,8 @@
 policy:
   approval:
-  - forms team
+  - or:
+    - forms team
+    - core dev team
   - devops
 
   # Rules for disapproving
@@ -32,6 +34,14 @@ approval_rules:
     request_review:
       enabled: true
       mode: team
+- name: core dev team
+  description: A member of the core developer must leave an approving review
+  requires:
+    count: 1
+    teams:
+    - "python-discord/core-developers"
+  options:
+    ignore_update_merges: true
 - name: devops
   description: If CI or Dockerfile are touched then the DevOps team must leave an approving review
   requires:
