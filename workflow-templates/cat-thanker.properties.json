@@ -1,0 +1,6 @@
+{
+  "name": "Cat thanker",
+  "description": "Posts a thank you message and a cat when a PR is merged.",
+  "iconName": "cat",
+  "categories": []
+}
