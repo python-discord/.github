@@ -45,6 +45,7 @@ approval_rules:
       - hedythedev
       - Refisio
       - riffautae
+      - ToxicKidz
   options:
     ignore_update_merges: true
 - name: devops
