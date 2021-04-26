@@ -1,8 +1,10 @@
 policy:
   approval:
-  - and:
-    - core dev
-    - staff or contributor
+  - or:
+    - and:
+      - core dev
+      - staff or contributor
+    - tag speedrun
   - devops
 
   # Rules for disapproving
@@ -30,6 +32,15 @@ approval_rules:
     - "python-discord/core-developers"
   options:
     ignore_update_merges: true
+- name: tag speedrun
+  description: A PR that only changes tags for the Python Discord Bot
+  requires:
+    count: 1
+    organizations: ["python-discord"]
+  if:
+    only_changed_files:
+      paths:
+        - "bot/resources/.*"
 - name: staff or contributor
   description: Two members of the staff or contributors team must leave an approval
   requires:
