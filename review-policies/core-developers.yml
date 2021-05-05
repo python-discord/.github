@@ -37,6 +37,8 @@ approval_rules:
   requires:
     count: 1
     organizations: ["python-discord"]
+  options:
+    ignore_update_merges: true
   if:
     only_changed_files:
       paths:
