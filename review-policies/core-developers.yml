@@ -5,7 +5,9 @@ policy:
       - core dev
       - staff or contributor
     - tag speedrun
+    - site content
   - devops
+  - events
 
   # Rules for disapproving
   disapproval:
@@ -43,6 +45,18 @@ approval_rules:
     only_changed_files:
       paths:
         - "bot/resources/tags/.*"
+- name: site content
+  description: A PR that only changes site content for the Python Discord Site
+  requires:
+    count: 2
+    organizations: ["python-discord"]
+  options:
+    ignore_update_merges: true
+  if:
+    only_changed_files:
+      paths:
+        - "pydis_site/apps/content/resources/.*"
+        - "pydis_site/apps/resources/resources/.*"
 - name: staff or contributor
   description: Two members of the staff or contributors team must leave an approval
   requires:
@@ -72,6 +86,21 @@ approval_rules:
       paths:
         - ".github/workflows/*"
         - "Dockerfile"
+  options:
+    request_review:
+      enabled: true
+      mode: team
+    ignore_update_merges: true
+- name: events
+  description: If events files are changed an admin must approve
+  requires:
+    count: 1
+    teams:
+    - "python-discord/admins"
+  if:
+    changed_files:
+      paths:
+        - "pydis_site/apps/events/*"
   options:
     request_review:
       enabled: true
