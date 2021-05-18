@@ -5,7 +5,9 @@ policy:
       - core dev
       - staff or contributor
     - tag speedrun
-    - site content
+    - or:
+      - site content (staff)
+      - site content (admin)
   - devops
   - events
 
@@ -45,11 +47,24 @@ approval_rules:
     only_changed_files:
       paths:
         - "bot/resources/tags/.*"
-- name: site content
-  description: A PR that only changes site content for the Python Discord Site
+- name: site content (staff)
+  description: A PR that only changes site content for the Python Discord Site (2 staff approvals)
   requires:
     count: 2
     organizations: ["python-discord"]
+  options:
+    ignore_update_merges: true
+  if:
+    only_changed_files:
+      paths:
+        - "pydis_site/apps/content/resources/.*"
+        - "pydis_site/apps/resources/resources/.*"
+- name: site content (admin)
+  description: A PR that only changes site content for the Python Discord Site (1 admin approval)
+  requires:
+    count: 1
+    teams:
+    - "python-discord/admins"
   options:
     ignore_update_merges: true
   if:
