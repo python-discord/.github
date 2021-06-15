@@ -116,6 +116,7 @@ approval_rules:
     changed_files:
       paths:
         - "pydis_site/apps/events/*"
+        - "pydis_site/templates/events/*"
   options:
     request_review:
       enabled: true
