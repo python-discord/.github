@@ -107,7 +107,7 @@ approval_rules:
       mode: team
     ignore_update_merges: true
 - name: events
-  description: If events files are changed an admin must approve
+  description: If events files are changed the Events Lead (or an Admin) must approve
   requires:
     count: 1
     teams:
