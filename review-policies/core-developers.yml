@@ -106,7 +106,7 @@ approval_rules:
   options:
     request_review:
       enabled: true
-      mode: team
+      mode: teams
     ignore_update_merges: true
 - name: events
   description: If events files are changed the Events Lead (or an Admin) must approve
@@ -122,6 +122,6 @@ approval_rules:
   options:
     request_review:
       enabled: true
-      mode: team
+      mode: teams
       
     ignore_update_merges: true
