@@ -101,6 +101,8 @@ approval_rules:
       paths:
         - ".github/workflows/*"
         - "Dockerfile"
+    has_labels:
+      - "review: needs devops"
   options:
     request_review:
       enabled: true
