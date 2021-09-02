@@ -81,13 +81,11 @@ approval_rules:
       - ByteCommander
       - mathsman5133
       - slushiegoose
-      - JonasUJ
       - F4zii
       - kingdom5500
       - hedythedev
       - Refisio
       - riffautae
-      - ToxicKidz
   options:
     ignore_update_merges: true
 - name: devops
