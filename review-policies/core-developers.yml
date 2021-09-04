@@ -9,6 +9,7 @@ policy:
       - site content (staff)
       - site content (admin)
   - devops
+  - devops (manual)
   - events
 
   # Rules for disapproving
@@ -101,6 +102,18 @@ approval_rules:
       paths:
         - ".github/workflows/*"
         - "Dockerfile"
+  options:
+    request_review:
+      enabled: true
+      mode: teams
+    ignore_update_merges: true
+- name: devops (manual)
+  description: A manual request with the "review: needs devops" label
+  requires:
+    count: 1
+    teams:
+    - "python-discord/devops"
+  if:
     has_labels:
       - "review: needs devops"
   options:
