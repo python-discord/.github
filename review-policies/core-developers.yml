@@ -108,7 +108,7 @@ approval_rules:
       mode: teams
     ignore_update_merges: true
 - name: devops (manual)
-  description: A manual request with the "review: needs devops" label
+  description: 'A manual request with the "review: needs devops" label'
   requires:
     count: 1
     teams:
