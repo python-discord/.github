@@ -125,6 +125,8 @@ approval_rules:
   description: If events files are changed the Events Lead (or an Admin) must approve
   requires:
     count: 1
+    users:
+    - "janine9vn"
     teams:
     - "python-discord/admins"
   if:
