@@ -11,6 +11,7 @@ policy:
   - devops
   - devops (manual)
   - events
+  - do not merge
 
   # Rules for disapproving
   disapproval:
@@ -125,6 +126,8 @@ approval_rules:
   description: If events files are changed the Events Lead (or an Admin) must approve
   requires:
     count: 1
+    users:
+    - "janine9vn"
     teams:
     - "python-discord/admins"
   if:
@@ -138,3 +141,10 @@ approval_rules:
       mode: teams
       
     ignore_update_merges: true
+- name: do not merge
+  description: "If the 'review: do not merge' tag is applied, merging is blocked"
+  requires:
+    count: 1
+    users: ["ghost"]  # We need a rule that cannot complete
+  if:
+    has_labels: ["review: do not merge"]
