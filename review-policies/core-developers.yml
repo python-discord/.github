@@ -141,9 +141,11 @@ approval_rules:
       
     ignore_update_merges: true
 - name: do not merge
-  description: "If the 'review: do not merge' tag is applied, merging is blocked"
+  description: "If the 'review: do not merge' or 'needs testing' tag is applied, merging is blocked"
   requires:
     count: 1
     users: ["ghost"]  # We need a rule that cannot complete
   if:
-    has_labels: ["review: do not merge"]
+    has_labels: 
+      - "review: do not merge"
+      - "needs testing"
