@@ -1,0 +1,16 @@
+name: "Pull request needs testing tagger"
+
+on:
+  workflow_call:
+    secrets:
+      token:
+        required: true
+
+jobs:
+  add_tag:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/labeler@v3
+      with:
+        repo-token: ${{ secrets.token }}
+        configuration-path: "workflows/auto_tagger_config.yaml"
