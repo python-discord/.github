@@ -89,7 +89,6 @@ approval_rules:
       - Refisio
       - riffautae
       - doublevcodes
-      - Akarys42
   options:
     ignore_update_merges: true
 - name: devops
