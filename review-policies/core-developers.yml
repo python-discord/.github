@@ -61,6 +61,7 @@ approval_rules:
       paths:
         - "pydis_site/apps/content/resources/.*"
         - "pydis_site/apps/resources/resources/.*"
+        - "pydis_site/static/images/.*"
 - name: site content (admin)
   description: A PR that only changes site content for the Python Discord Site (1 admin approval)
   requires:
@@ -74,6 +75,7 @@ approval_rules:
       paths:
         - "pydis_site/apps/content/resources/.*"
         - "pydis_site/apps/resources/resources/.*"
+        - "pydis_site/static/images/.*"
 - name: staff or contributor
   description: Two members of the staff or contributors team must leave an approval
   requires:
@@ -138,7 +140,7 @@ approval_rules:
     request_review:
       enabled: true
       mode: teams
-      
+
     ignore_update_merges: true
 - name: do not merge
   description: "If the 'review: do not merge' tag is applied, merging is blocked"
