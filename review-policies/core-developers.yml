@@ -4,13 +4,14 @@ policy:
     - and:
       - core dev
       - staff or contributor
+      - events
+    - events
     - tag speedrun
     - or:
       - site content (staff)
       - site content (admin)
   - devops
   - devops (manual)
-  - events
   - do not merge
 
   # Rules for disapproving
