@@ -2,4 +2,4 @@ We're a large community focused around the Python programming language. We belie
 
 We organise regular community events such as code jams, open-source hackathons, seasonal events, and community challenges. Through our sponsorships and donations, many of our events even have prizes to win!
 
-You can find help with most Python-related problems in one of our help channels. Our staff of over 100 dedicated expert Helpers are available around the clock in every timezone. Whether you're looking to learn the language or working on a complex project, we've got someone who can help you if you get stuck.
+You can find help with most Python-related problems in our help forum. Our staff of over 100 dedicated expert Helpers are available around the clock in every timezone. Whether you're looking to learn the language or working on a complex project, we've got someone who can help you if you get stuck.
