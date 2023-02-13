@@ -92,7 +92,6 @@ approval_rules:
       - Refisio
       - riffautae
       - doublevcodes
-      - shtlrs
   options:
     ignore_update_merges: true
 - name: devops
