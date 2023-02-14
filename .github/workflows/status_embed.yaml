@@ -41,22 +41,14 @@ jobs:
       # more information and we can fine tune when we actually want
       # to send an embed.
       - name: GitHub Actions Status Embed for Discord
-        uses: SebastiaanZ/github-status-embed-for-discord@v0.2.1
+        uses: SebastiaanZ/github-status-embed-for-discord@v0.3.0
         with:
           # Our GitHub Actions webhook
           webhook_id: '784184528997842985'
           webhook_token: ${{ secrets.webhook_token }}
 
           # Workflow information
-          workflow_name: ${{ github.workflow }}
-          run_id: ${{ github.run_id }}
-          run_number: ${{ github.run_number }}
           status: ${{ inputs.job_status }}
-          actor: ${{ github.actor }}
-          repository:  ${{ github.repository }}
-          ref: ${{ github.ref }}
-          sha: ${{ github.sha }}
-
           pr_author_login: ${{ github.event.pull_request.user.login}}
           pr_number: ${{ github.event.pull_request.number }}
           pr_title: ${{ github.event.pull_request.title }}
