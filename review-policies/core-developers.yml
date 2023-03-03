@@ -92,6 +92,7 @@ approval_rules:
       - Refisio
       - riffautae
       - doublevcodes
+      - Ibrahim2750mi
   options:
     ignore_update_merges: true
 - name: devops
