@@ -7,6 +7,7 @@ policy:
       - events
     - events
     - tag speedrun
+    - dependabot
     - or:
       - site content (staff)
       - site content (admin)
@@ -144,6 +145,16 @@ approval_rules:
       mode: teams
 
     ignore_update_merges: true
+- name: dependabot
+  description: If this is a library version bump authored by dependabot
+  requires:
+    count: 1
+    teams:
+    - "python-discord/core-developers"
+  if:
+      has_author_in:
+        users: ["app/dependabot"]
+      author_is_only_contributor: true
 - name: do not merge
   description: "If the 'review: do not merge' tag is applied, merging is blocked"
   requires:
