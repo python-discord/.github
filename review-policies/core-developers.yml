@@ -155,8 +155,6 @@ approval_rules:
       has_author_in:
         users: ["dependabot[bot]"]
       author_is_only_contributor: true
-  options:
-    ignore_update_merges: true
 - name: do not merge
   description: "If the 'review: do not merge' tag is applied, merging is blocked"
   requires:
