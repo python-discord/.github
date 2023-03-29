@@ -153,7 +153,7 @@ approval_rules:
     - "python-discord/core-developers"
   if:
       has_author_in:
-        users: ["app/dependabot"]
+        users: ["dependabot[bot]"]
       author_is_only_contributor: true
 - name: do not merge
   description: "If the 'review: do not merge' tag is applied, merging is blocked"
