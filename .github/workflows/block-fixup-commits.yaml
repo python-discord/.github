@@ -3,29 +3,35 @@ name: Block "fixup" commit merges
 on:
   workflow_call:
 
+env:
+  RED: '\033[0;31m'
+  YELLOW: '\033[0;33m'
+
+
 jobs:
   check-commits:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout base repo
-      uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.base.ref }}
+    - name: Checkout our main branch
+      uses:  actions/checkout@v3
 
-    - name: Checkout to the pull request's branch
-      run: gh pr checkout ${{ github.event.pull_request.number }}
-      env:
-        GH_TOKEN: ${{ github.token }}
+    - name: Add fork as remote
+      run: git remote add fork ${{ github.event.pull_request.head.repo.clone_url  }}
+
+    - name: Fetch the pull request's branch
+      run: git fetch fork ${{ github.event.pull_request.head.ref }} --depth=$((${{ github.event.pull_request.commits }} + 1 ))
 
     - name: Look for the fixup prefix
       id: search-for-fixup-prefix
       run: |
-        commit_messages=$(git log origin/${{ github.event.pull_request.base.ref }}..HEAD --format=%B)
-        fixup_commits=$(echo "$commit_messages" | grep "^fixup" || true)
-        if [ -n "$fixup_commits" ]; then
-            echo "Please make sure that all commits that have the 'fixup' prefix need to be squashed before merging."
-            echo "Commits with 'fixup' prefix:"
-            echo "$fixup_commits"
+        commit_messages=$(git log origin/${{ github.event.pull_request.base.ref }}..fork/${{ github.event.pull_request.head.ref }} --format="%h %B" --grep "^fixup" --oneline)
+        if [ -n "commit_messages" ]; then
+            echo -e "$RED Error: Make sure that all 'fixup' prefixed commits are squashed before merging."
+            echo -e "$RED Commits that need fixing:"
+            while IFS= read -r line; do
+              echo -e "$YELLOW${line}"
+            done <<< "$commit_messages"
+            exit 1
             exit 1
         fi
