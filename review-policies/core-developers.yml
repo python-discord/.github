@@ -3,7 +3,7 @@ policy:
   - or:
     - and:
       - core dev
-      - staff or contributor
+      - staff
       - events
     - events
     - tag speedrun
@@ -78,22 +78,11 @@ approval_rules:
         - "pydis_site/apps/content/resources/.*"
         - "pydis_site/apps/resources/resources/.*"
         - "pydis_site/static/images/.*"
-- name: staff or contributor
-  description: Two members of the staff or contributors team must leave an approval
+- name: staff
+  description: Two members of the staff team must leave an approval
   requires:
     count: 2
     organizations: ["python-discord"]
-    users:
-      - ByteCommander
-      - mathsman5133
-      - slushiegoose
-      - F4zii
-      - kingdom5500
-      - hedyhli
-      - Refisio
-      - riffautae
-      - doublevcodes
-      - Ibrahim2750mi
   options:
     ignore_update_merges: true
 - name: devops
@@ -107,6 +96,8 @@ approval_rules:
       paths:
         - ".github/workflows/*"
         - "Dockerfile"
+        - "deployment.yml"
+        - "deployment.yaml"
   options:
     request_review:
       enabled: true
