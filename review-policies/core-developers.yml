@@ -126,7 +126,7 @@ approval_rules:
     teams:
     - "python-discord/admins"
   if:
-    only_changed_files:
+    changed_files:
       paths:
         - "pydis_site/apps/events/*"
         - "pydis_site/templates/events/*"
