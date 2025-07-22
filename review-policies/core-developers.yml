@@ -58,6 +58,7 @@ approval_rules:
     organizations: ["python-discord"]
   options:
     ignore_update_merges: true
+    allow_non_author_contributor: true
   if:
     only_changed_files:
       paths:
