@@ -40,10 +40,13 @@ approval_rules:
   if:
     changed_files:
       paths:
-        - ".github/workflows/*"
+        - ".github/*"
         - "Dockerfile"
         - "deployment.yml"
         - "deployment.yaml"
+        - ".pre-commit-config.yaml"
+        - "pyproject.toml"
+        - "docker-compose.yml"
   options:
     request_review:
       enabled: true
