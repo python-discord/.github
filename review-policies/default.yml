@@ -2,6 +2,7 @@ policy:
   approval:
   - core dev or devops
   - devops
+  - devops (manual)
 
   # Rules for disapproving
   disapproval:
@@ -29,7 +30,6 @@ approval_rules:
     - "python-discord/devops"
   options:
     ignore_update_merges: true
-    invalidate_on_push: true
     allow_non_author_contributor: true
 - name: devops
   description: If CI or Dockerfiles are changed then the DevOps team must be requested for a review
