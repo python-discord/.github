@@ -11,7 +11,9 @@ policy:
     - or:
       - site content (staff)
       - site content (admin)
-  - devops
+  - or:
+    - devops
+    - dependabot
   - devops (manual)
   - do not merge
 
