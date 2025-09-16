@@ -152,6 +152,11 @@ approval_rules:
     teams:
     - "python-discord/core-developers"
   if:
+      only_changed_files:
+        paths:
+          - "pyproject.toml"
+          - "poetry.lock"
+          - "uv.lock"
       has_author_in:
         users: ["dependabot[bot]"]
       author_is_only_contributor: true
