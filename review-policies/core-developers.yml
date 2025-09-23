@@ -99,7 +99,7 @@ approval_rules:
   if:
     changed_files:
       paths:
-        - "^\.github/"
+        - '^\.github/'
         - "Dockerfile"
         - "deployment.yml"
         - "deployment.yaml"
