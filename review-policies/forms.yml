@@ -51,7 +51,7 @@ approval_rules:
   if:
     changed_files:
       paths:
-        - ".github/workflows/*"
+        - '^\.github/'
         - "Dockerfile"
   options:
     request_review:
