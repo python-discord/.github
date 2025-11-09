@@ -1,0 +1,71 @@
+policy:
+  approval:
+  - core devs, devops or events
+  - devops
+  - devops (manual)
+
+  # Rules for disapproving
+  disapproval:
+    options:
+      # Both disapproving and approving should be handled through the GitHub UI
+      methods:
+        disapprove:
+          github_review: true
+
+        revoke:
+          github_review: true
+
+    # Any python-discord organisation member can leave a disapproving review
+    requires:
+      organizations: ["python-discord"]
+
+
+approval_rules:
+- name: core devs, devops or events
+  description: Approval by either a Core Dev, a DevOps team member or an Events Team member
+  requires:
+    count: 1
+    teams:
+    - "python-discord/core-developers"
+    - "python-discord/devops"
+    - "python-discord/events"
+  options:
+    ignore_update_merges: true
+    allow_non_author_contributor: true
+- name: devops
+  description: If CI or Dockerfiles are changed then the DevOps team must be requested for a review
+  requires:
+    count: 1
+    teams:
+    - "python-discord/devops"
+  if:
+    changed_files:
+      paths:
+        - '^\.github/'
+        - "Dockerfile"
+        - "deployment.yml"
+        - "deployment.yaml"
+        - ".pre-commit-config.yaml"
+        - "pyproject.toml"
+        - "docker-compose.yml"
+  options:
+    request_review:
+      enabled: true
+      mode: teams
+    ignore_update_merges: true
+    allow_non_author_contributor: true
+- name: devops (manual)
+  description: 'A manual request with the "review: needs devops" label'
+  requires:
+    count: 1
+    teams:
+    - "python-discord/devops"
+  if:
+    has_labels:
+      - "review: needs devops"
+  options:
+    request_review:
+      enabled: true
+      mode: teams
+    ignore_update_merges: true
+    allow_non_author_contributor: true
