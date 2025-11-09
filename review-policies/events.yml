@@ -1,6 +1,8 @@
 policy:
   approval:
-  - core devs, devops or events
+  - or:
+    - core devs or devops
+    - events
   - devops
   - devops (manual)
 
@@ -21,17 +23,28 @@ policy:
 
 
 approval_rules:
-- name: core devs, devops or events
-  description: Approval by either a Core Dev, a DevOps team member or an Events Team member
+- name: core devs or devops
+  description: Approval by either a Core Dev or a DevOps team member
   requires:
     count: 1
     teams:
     - "python-discord/core-developers"
     - "python-discord/devops"
+  options:
+    ignore_update_merges: true
+    allow_non_author_contributor: true
+- name: events
+  description: Approval by a member of the Events Team
+  requires:
+    count: 1
+    teams:
     - "python-discord/events"
   options:
     ignore_update_merges: true
     allow_non_author_contributor: true
+    request_review:
+      enabled: true
+      mode: teams
 - name: devops
   description: If CI or Dockerfiles are changed then the DevOps team must be requested for a review
   requires:
